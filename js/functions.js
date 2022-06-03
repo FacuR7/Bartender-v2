@@ -36,6 +36,7 @@ function modoOscuro () {
   document.querySelector(".subtitulos").classList.toggle("modoOscuro");
   document.querySelector(".indexProductos").classList.toggle("modoOscuro");
 }
+
 //Carrito de compras//
 
 const carritoCompras = document.getElementById("carro");
@@ -44,10 +45,8 @@ const vaciarCarrito = document.getElementById("botonVaciar");
 const listaBebidas = document.getElementById("listaBebida");
 const listaBebidasSinAlc = document.getElementById("listaBebidaSinAlc");
 const listaEspecias = document.getElementById("listaEspecia");
+let articulosCarro = [];
 
-function agregarProducto() {
-  console.log("producto agregado");
-}
 
 const Registro = () => {
   listaBebidas.addEventListener('click', agregarProducto);
@@ -55,3 +54,41 @@ const Registro = () => {
   listaEspecias.addEventListener('click', agregarProducto);
 }
 Registro();
+
+function agregarProducto(e) {
+  const productoSeleccionado = e.target.parentElement.parentElement;
+  leerDatosProducto(productoSeleccionado);
+}
+
+function leerDatosProducto(productoSeleccionado) {
+  const infoProducto = {
+    imagen: productoSeleccionado.querySelector('img').src,
+    titulo: productoSeleccionado.querySelector('h1').textContent,
+    precio: productoSeleccionado.querySelector('.precio').textContent,
+    cantidad: 1,
+  }
+  articulosCarro = [...articulosCarro, infoProducto]
+  console.log(articulosCarro);
+  carritoVisible();
+}
+
+function carritoVisible() {
+
+  limpiarCarro();
+  articulosCarro.forEach( producto => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>
+          ${producto.titulo}
+
+      </td>
+    `;
+
+    contenidoCarrito.appendChild(row);
+  })
+}
+function limpiarHTML() {
+  while(articulosCarro.firstChild) {
+    articulosCarro.removeChild(articulosCarro.firstChild)
+  }
+}
