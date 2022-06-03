@@ -74,7 +74,6 @@ function leerDatosProducto(productoSeleccionado) {
 
 function carritoVisible() {
 
-  limpiarCarro();
   articulosCarro.forEach( producto => {
     const row = document.createElement('tr');
     row.innerHTML = `
