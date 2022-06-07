@@ -134,7 +134,6 @@ header {
 
 .dropdown_contenido {
   display: none;
-  position: absolute;
   width: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -153,10 +152,6 @@ header {
 
 .dropdown_contenido a:hover {
   background-color: rgba(0, 56, 82, 0.829);
-}
-
-.dropdown:hover .dropdown_contenido {
-  display: block;
 }
 
 .dropdown:active .dropdown_boton {
@@ -222,7 +217,7 @@ header {
 }
 .dropdownAbierto {
   display: block;
-  position: absolute;
+  position: fixed;
   width: 100%;
   box-shadow: 0px 9px 18px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -319,6 +314,7 @@ input:checked + .slider:before {
   grid-template-rows: 100%;
   align-items: center;
   justify-items: center;
+  padding-bottom: 0.3rem;
 }
 #boton{
   width: 100%;
@@ -344,4 +340,7 @@ tr {
 }
 .borrar-producto {
   font-size: 1.5rem;
+}
+.show {
+  display: block;
 }

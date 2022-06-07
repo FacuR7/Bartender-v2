@@ -21,6 +21,21 @@ function cierraMenu() {
   let container = document.getElementById("dropdown_contenido");
   container.className = "dropdown_contenido";
 }
+function myFunction() {
+  document.getElementById("dropdown_contenido").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdown_boton')) {
+    var dropdowns = document.getElementsByClassName("dropdown_contenido");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 
 // Modo Oscuro //
 
