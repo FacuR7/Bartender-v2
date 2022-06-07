@@ -52,12 +52,28 @@ const Registro = () => {
   listaBebidas.addEventListener('click', agregarProducto);
   listaBebidasSinAlc.addEventListener('click', agregarProducto);
   listaEspecias.addEventListener('click', agregarProducto);
+
+  carritoCompras.addEventListener('click', eliminarProducto)
 }
 Registro();
 
 function agregarProducto(e) {
-  const productoSeleccionado = e.target.parentElement.parentElement;
-  leerDatosProducto(productoSeleccionado);
+  
+  if (e.target.classList.contains('agregarCarro')) {
+  
+    const productoSeleccionado = e.target.parentElement.parentElement;
+    leerDatosProducto(productoSeleccionado);
+  }  
+}
+
+function eliminarProducto(e) {
+  if(e.target.classList.contains('borrar-producto')) {
+    const productoId = e.target.getAttribute('data-id');
+
+    articulosCarro = articulosCarro.filter(producto => producto.id !== productoId);
+
+    carritoVisible();
+    }
 }
 
 function leerDatosProducto(productoSeleccionado) {
@@ -65,29 +81,49 @@ function leerDatosProducto(productoSeleccionado) {
     imagen: productoSeleccionado.querySelector('img').src,
     titulo: productoSeleccionado.querySelector('h1').textContent,
     precio: productoSeleccionado.querySelector('.precio').textContent,
+    id: productoSeleccionado.querySelector('button').getAttribute('data-id'),
     cantidad: 1,
   }
-  articulosCarro = [...articulosCarro, infoProducto]
+
+  const existe = articulosCarro.some ( producto => producto.id === infoProducto.id);
+  if(existe) {
+    const productos = articulosCarro.map( producto => {
+      if(producto.id === infoProducto.id) {
+        producto.cantidad++;
+        return producto;
+      } else {
+        return producto;
+      }
+    });
+    articulosCarro = [...productos];
+  } else {
+    articulosCarro = [...articulosCarro, infoProducto]
+  }
   console.log(articulosCarro);
   carritoVisible();
 }
 
+function limpiarHTML() {
+  while(contenidoCarrito.firstChild) {
+    contenidoCarrito.removeChild(contenidoCarrito.firstChild)
+  }
+}
+
 function carritoVisible() {
+
+  limpiarHTML();
 
   articulosCarro.forEach( producto => {
     const row = document.createElement('tr');
+    row.setAttribute("id", "productoCarrito")
     row.innerHTML = `
-      <td>
-          ${producto.titulo}
-
-      </td>
+      <td><img src="${producto.imagen}" witdh="60rem" height="70rem" /></td>
+      <td>${producto.titulo}</td>
+      <td style="font-size:1rem; font-weight:bold">${producto.precio}</td>
+      <td>${producto.cantidad}</td>
+      <td class="borrar-producto" data-id="${producto.id}"><ion-icon name="trash-outline"></ion-icon></td>  
     `;
 
     contenidoCarrito.appendChild(row);
   })
-}
-function limpiarHTML() {
-  while(articulosCarro.firstChild) {
-    articulosCarro.removeChild(articulosCarro.firstChild)
-  }
 }

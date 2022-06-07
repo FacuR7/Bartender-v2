@@ -305,3 +305,43 @@ input:checked + .slider:before {
   background-color: rgb(206, 240, 250);
   color: black;
 }
+.tablaCarro {
+  display: flex;
+  flex-direction: column;
+}
+#contenidoCarrito {
+  display: flex;
+  flex-direction: column;
+}
+#productoCarrito {
+  display: grid;
+  grid-template-columns: 25% 20% 20% 17% 18%;
+  grid-template-rows: 100%;
+  align-items: center;
+  justify-items: center;
+}
+#boton{
+  width: 100%;
+  position: relative;
+  margin-top: 1rem;
+}
+#botonVaciar {
+  margin: 0;
+  margin-top: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgb(1, 51, 75);
+}
+tr {
+  font-size: 0.8rem;
+}
+#carro {
+  margin-top: 1.2rem;
+}
+.borrar-producto {
+  font-size: 1.5rem;
+}
