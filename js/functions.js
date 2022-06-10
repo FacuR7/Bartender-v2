@@ -1,3 +1,36 @@
+//Alerta Mayor de edad//
+
+function mayorEdad () {
+  Swal.fire({
+    title: 'Sos Mayor de edad?',
+    text: "Debes tener al menos 18 años para entrar a la tienda",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Soy mayor de 18 años',
+    cancelButtonText: 'No, abandonar la tienda',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Perfecto!',
+        'Bienvenid@ a Bartender',
+        'OK'
+      ) 
+    }
+    else if (result.dismiss === Swal.DismissReason.cancel) {
+      document.querySelector("body").innerHTML = "";
+      Swal.fire(
+        'Cancelado',
+        'Debes ser mayor de 18 años para entrar a la tienda',
+        'OK'
+      )
+
+    } 
+  })
+}
+mayorEdad();
+
 function openMenu() {
   document.getElementById("sidebarMenu").style.width = "300px";
 }
@@ -69,6 +102,11 @@ const Registro = () => {
   listaEspecias.addEventListener('click', agregarProducto);
 
   carritoCompras.addEventListener('click', eliminarProducto)
+
+  vaciarCarrito.addEventListener('click', ()=> {
+    articulosCarro = [];
+    limpiarHTML();
+  })
 }
 Registro();
 
@@ -78,7 +116,8 @@ function agregarProducto(e) {
   
     const productoSeleccionado = e.target.parentElement.parentElement;
     leerDatosProducto(productoSeleccionado);
-  }  
+  }
+  calcularTotal();  
 }
 
 function eliminarProducto(e) {
@@ -89,6 +128,7 @@ function eliminarProducto(e) {
 
     carritoVisible();
     }
+    calcularTotal();
 }
 
 function leerDatosProducto(productoSeleccionado) {
@@ -141,4 +181,18 @@ function carritoVisible() {
 
     contenidoCarrito.appendChild(row);
   })
+}
+
+// Calcular el total del carrito
+
+const calcularTotal = () => {
+let total = 0;
+  if (articulosCarro.lenght > 0) {
+    articulosCarro.forEach( producto => {
+      total = total + infoProducto.precio * infoProducto.cantidad;
+      const totalContainer = document.getElementById("total");
+      totalContainer.innerHTML = `<h2 id="numeroTotal">Total:${total}<h2>`;
+      carritoCompras.appendChild(totalContainer);
+    })
+  }
 }
