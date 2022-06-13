@@ -116,8 +116,8 @@ function agregarProducto(e) {
   
     const productoSeleccionado = e.target.parentElement.parentElement;
     leerDatosProducto(productoSeleccionado);
+    calcularTotal();
   }
-  calcularTotal();  
 }
 
 function eliminarProducto(e) {
@@ -127,8 +127,8 @@ function eliminarProducto(e) {
     articulosCarro = articulosCarro.filter(producto => producto.id !== productoId);
 
     carritoVisible();
-    }
     calcularTotal();
+  }  
 }
 
 function leerDatosProducto(productoSeleccionado) {
@@ -185,14 +185,10 @@ function carritoVisible() {
 
 // Calcular el total del carrito
 
-const calcularTotal = () => {
-let total = 0;
-  if (articulosCarro.lenght > 0) {
-    articulosCarro.forEach( producto => {
-      total = total + infoProducto.precio * infoProducto.cantidad;
-      const totalContainer = document.getElementById("total");
-      totalContainer.innerHTML = `<h2 id="numeroTotal">Total:${total}<h2>`;
-      carritoCompras.appendChild(totalContainer);
-    })
-  }
+function calcularTotal () {
+  let total = 0;
+  articulosCarro.forEach( producto => {
+    total += producto.precio * producto.cantidad;
+  })
+  console.log(total);
 }
