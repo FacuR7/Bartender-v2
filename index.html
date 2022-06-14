@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Bartender</title>
   </head>
-  <body>
+  <body id="body">
     <header>
       <div class="header_menu" onclick="openMenu(), closeCarro()">
         <ion-icon name="reorder-three-outline"></ion-icon>
@@ -106,20 +106,26 @@
       </div>
     </div>
     <div id="sidebarMenu" class="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
-      <a href="#">Inicio</a>
-      <a href="#dropdown" onclick="openCategorias()">Tienda</a>
-      <a href="#">Contacto</a>
-      <a href="#">Elegi tu Trago</a>
-      <label class="toggle">
-        <span class="onoff">Tema Oscuro</span>
-        <input type="checkbox" />
-        <span class="slider round" onclick="modoOscuro()"></span>
-      </label> 
+      <div id="logoClima">
+        <img id="logoMenu" src="./assets/Logo.png" alt="logo"/>
+        <h2 id="temp"></h2>
+      </div>  
+      <div id="sidebarTexto">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
+        <a href="#">Inicio</a>
+        <a href="#dropdown" onclick="openCategorias()">Tienda</a>
+        <a href="#">Contacto</a>
+        <a href="#">Elegi tu Trago</a>
+        <label class="toggle">
+          <span class="onoff">Tema Oscuro</span>
+          <input type="checkbox" />
+          <span class="slider round" onclick="modoOscuro()"></span>
+        </label>
+      </div>   
     </div>
     <div id="sidebarCarro" class="sidebarCarro">
       <a href="javascript:void(0)" class="closebtn" onclick="closeCarro()">×</a>
-      <h1>Carro de compras</h1>
+      <h1 id="tituloCarro">Carro de compras</h1>
       <div id="carro">
         <table id="listCarro" class="tablaCarro">
           <thead>
@@ -134,10 +140,13 @@
           <tbody id="contenidoCarrito"></tbody>
         </table>
       </div>
+      <div class="total">
+        <h1 class="totalTexto">Total:</h1>
+        <h1 id="totalNumero"></h1>
+      </div>
       <div id="boton">
       <button id="botonVaciar">Vaciar Carrito</button>
       </div>
-      <div id="total"></div>
     </div>
     <div class="dropdown" id="dropdown">
       <button id="dropdown_boton" class="dropdown_boton" onclick="myFunction()">Categorias</button>
@@ -152,97 +161,97 @@
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="1">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Campari.png" alt="Campari" style="width: 100%" />
         <h1>Campari Aperitivo 750cc</h1>
-        <p class="precio">$700</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>700</p>
         <p><button class="agregarCarro" data-id="2">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/RonHavana.jpg" alt="Ron" style="width: 100%" />
         <h1>Ron Havana Especial</h1>
-        <p class="precio">$1600</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>1600</p>
         <p><button class="agregarCarro" data-id="3">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/RonHavanaBlanco.jpg" alt="Ron" style="width: 100%" />
         <h1>Ron Havana Blanco</h1>
-        <p class="precio">$1500</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>1500</p>
         <p><button class="agregarCarro" data-id="4">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/AbsolutOrigina.jpg" alt="Absolut" style="width: 100%"/>
         <h1>Absolut Original 750cc</h1>
-        <p class="precio">$2800</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>2800</p>
         <p><button class="agregarCarro" data-id="5">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/AbsolutRasp.jpg" alt="Absolut" style="width: 100%" />
         <h1>Absolut Raspberri 750cc</h1>
-        <p class="precio">$3000</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>3000</p>
         <p><button class="agregarCarro" data-id="6">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/AbsolutMango.jpg" alt="Absolut" style="width: 100%"/>
         <h1>Absolut Mango 750cc</h1>
-        <p class="precio">$3000</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>3000</p>
         <p><button class="agregarCarro" data-id="7">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/AbsolutPears.jpg" alt="Absolut" style="width: 100%"/>
         <h1>Absolut Pears 750cc</h1>
-        <p class="precio">$3000</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>3000</p>
         <p><button class="agregarCarro" data-id="8">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/GinHendricks.jpg" alt="Gin" style="width: 100%" />
         <h1>Gin Hendrick's 700cc</h1>
-        <p class="precio">$7000</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>7000</p>
         <p><button class="agregarCarro" data-id="9">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/ginMerle.jpeg" alt="Gin" style="width: 100%" />
         <h1>Dry Gin Merle 750cc</h1>
-        <p class="precio">$1100</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>1100</p>
         <p><button class="agregarCarro" data-id="10">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/GinBombay.png" alt="Gin" style="width: 100%" />
         <h1>Gin Bombay 750cc</h1>
-        <p class="precio">$3100</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>3100</p>
         <p><button class="agregarCarro" data-id="11">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/GinBsas.png" alt="Gin" style="width: 100%" />
         <h1>Gin Bs. Aires 750cc</h1>
-        <p class="precio">$2900</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>2900</p>
         <p><button class="agregarCarro" data-id="12">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Jagger.jpg" alt="Gin" style="width: 100%" />
         <h1>Jagger- meister 700cc</h1>
-        <p class="precio">$4600</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>4600</p>
         <p><button class="agregarCarro" data-id="13">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/TequilaJose.jpg" alt="Tequila" style="width: 100%" />
         <h1>Jose Cuervo 750cc</h1>
-        <p class="precio">$5000</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>5000</p>
         <p><button class="agregarCarro" data-id="14">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Cachaca.jpg" alt="Cachaça" style="width: 100%" />
         <h1>Cachaça Velho Barreiro</h1>
-        <p class="precio">$750</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>750</p>
         <p><button class="agregarCarro" data-id="15">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Cynar.jpg" alt="Cynar" style="width: 100%" />
         <h1>Aperitivo Cynar 750cc</h1>
-        <p class="precio">$700</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>700</p>
         <p><button class="agregarCarro" data-id="16">Agregar al Carro</button></p>
       </div>
     </div>
@@ -251,166 +260,166 @@
       <div class="indexProductos_producto">
         <img src="./assets/Sprite.jpeg" alt="Gaseosa" style="width: 100%" />
         <h1>Sprite Botella 2.25L</h1>
-        <p class="precio">$250</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>250</p>
         <p><button class="agregarCarro" data-id="17">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/CocaCola.jpg" alt="Gaseosa" style="width: 100%" />
         <h1>Coca-Cola Bot. 2,25L</h1>
-        <p class="precio">$250</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>250</p>
         <p><button class="agregarCarro" data-id="18">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Schweppes.jpg" alt="Gaseosa" style="width: 100%" />
         <h1>Tonica P. De Los Toros 1.5L</h1>
-        <p class="precio">$170</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>170</p>
         <p><button class="agregarCarro" data-id="19">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Citric.webp" alt="Jugo" style="width: 100%" />
         <h1>Jugo Citric Naranja</h1>
-        <p class="precio">$270</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>270</p>
         <p><button class="agregarCarro" data-id="20">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/CitricPomelo.jpg" alt="Jugo" style="width: 100%" />
         <h1>Jugo Citric Pomelo</h1>
-        <p class="precio">$270</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>270</p>
         <p><button class="agregarCarro" data-id="21">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="22">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="23">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="24">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="25">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="26">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="27">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="28">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="29">Agregar al Carro</button></p>
       </div>
     </div>
-    <p class="subtitulos" id="especias">Especias y aromatizantes</p>
+    <p class="subtitulos" id="especias">Especias y Botanicos</p>
     <div class="indexProductos" id="listaEspecia">
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <img src="./assets/limon.webp" alt="Limon" style="width: 100%" />
+        <h1>Limon Organico 1kg</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>200</p>
         <p><button class="agregarCarro" data-id="30">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <img src="./assets/pimientaJamaica.jpg" alt="Pimienta" style="width: 100%" />
+        <h1>Pimienta Jamaica 50gr</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>150</p>
         <p><button class="agregarCarro" data-id="31">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <img src="./assets/lavanda.jpg" alt="Lavanda" style="width: 100%" />
+        <h1 style="padding-top: 0.7rem; padding-bottom: 0.5rem">Lavanda Seca 50gr</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>260</p>
         <p><button class="agregarCarro" data-id="32">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <img src="./assets/hibiscus.jpg" alt="Hibiscus" style="width: 100%" />
+        <h1 style="padding-top: 0.7rem; padding-bottom: 0.5rem">Hibiscus Seco 50gr</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>250</p>
         <p><button class="agregarCarro" data-id="33">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <img src="./assets/naranja.jpg" alt="naranja" style="width: 100%" />
+        <h1>Naranja Confitada 50gr</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>360</p>
         <p><button class="agregarCarro" data-id="34">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <img src="./assets/pimientaRosa.png" alt="pimientaRosa" style="width: 100%" />
+        <h1 style="padding-top: 0.7rem; padding-bottom: 0.5rem">Pimienta Rosa 50gr</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>280</p>
         <p><button class="agregarCarro" data-id="35">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <img src="./assets/canela.jpeg" alt="Canela" style="width: 100%" />
+        <h1>Canela en Rama 50gr</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>240</p>
         <p><button class="agregarCarro" data-id="36">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <img src="./assets/rosa.jpg" alt="Fernet" style="width: 100%" />
+        <h1>Petalos de Rosa 50gr</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>230</p>
         <p><button class="agregarCarro" data-id="37">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="38">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="39">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="40">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="41">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="42">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
-        <p class="precio">$980</p>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="43">Agregar al Carro</button></p>
       </div>
     </div>
