@@ -31,19 +31,27 @@ function mayorEdad () {
 }
 mayorEdad();
 
+//Apertura y cerrado de menu y carro //
+
 function openMenu() {
   document.getElementById("sidebarMenu").style.width = "300px";
+  document.getElementById("sidebarMenu").classList.add("sidebarSombra");
+  document.getElementById("sidebarCarro").classList.remove("carroSombra");
 }
 
 function closeMenu() {
   document.getElementById("sidebarMenu").style.width = "0";
+  document.getElementById("sidebarMenu").classList.remove("sidebarSombra");
 }
 function openCarro() {
   document.getElementById("sidebarCarro").style.width = "300px";
+  document.getElementById("sidebarCarro").classList.add("carroSombra");
+  document.getElementById("sidebarMenu").classList.remove("sidebarSombra");
 }
 
 function closeCarro() {
   document.getElementById("sidebarCarro").style.width = "0";
+  document.getElementById("sidebarCarro").classList.remove("carroSombra");
 }
 function openCategorias() {
   document.getElementById("sidebarMenu").style.width = "0";
@@ -81,8 +89,19 @@ function modoOscuro () {
   document.querySelector(".dropdown").classList.toggle("modoOscuro");
   document.querySelector(".dropdown_boton").classList.toggle("modoOscuroClaro");
   document.querySelector(".dropdown_contenido a").classList.toggle("modoOscuroClaro");
-  document.querySelector(".subtitulos").classList.toggle("modoOscuro");
-  document.querySelector(".indexProductos").classList.toggle("modoOscuro");
+  let botonesAgregarCarro = document.querySelectorAll(".agregarCarro");
+  botonesAgregarCarro.forEach(boton => {
+    boton.classList.toggle("modoOscuroClaro");
+  });
+  let subtitulos = document.querySelectorAll(".subtitulos");
+  subtitulos.forEach(subtitulo => {
+    subtitulo.classList.toggle("modoOscuro");
+  });
+  let productos = document.querySelectorAll(".indexProductos");
+  productos.forEach(producto => {
+    producto.classList.toggle("modoOscuro");
+  });
+  
 }
 
 //Carrito de compras//
@@ -106,6 +125,8 @@ const Registro = () => {
   vaciarCarrito.addEventListener('click', ()=> {
     articulosCarro = [];
     limpiarHTML();
+    document.getElementById("totalNumero").innerHTML = "$0";
+    calcularTotal();
   })
 }
 Registro();
@@ -117,6 +138,7 @@ function agregarProducto(e) {
     const productoSeleccionado = e.target.parentElement.parentElement;
     leerDatosProducto(productoSeleccionado);
     calcularTotal();
+    openCarro();
   }
 }
 
@@ -127,8 +149,8 @@ function eliminarProducto(e) {
     articulosCarro = articulosCarro.filter(producto => producto.id !== productoId);
 
     carritoVisible();
-    calcularTotal();
-  }  
+  }
+  calcularTotal();  
 }
 
 function leerDatosProducto(productoSeleccionado) {
@@ -156,11 +178,12 @@ function leerDatosProducto(productoSeleccionado) {
   }
   console.log(articulosCarro);
   carritoVisible();
+  calcularTotal();
 }
 
 function limpiarHTML() {
   while(contenidoCarrito.firstChild) {
-    contenidoCarrito.removeChild(contenidoCarrito.firstChild)
+    contenidoCarrito.removeChild(contenidoCarrito.firstChild);
   }
 }
 
@@ -186,9 +209,41 @@ function carritoVisible() {
 // Calcular el total del carrito
 
 function calcularTotal () {
+  
   let total = 0;
-  articulosCarro.forEach( producto => {
-    total += producto.precio * producto.cantidad;
-  })
+articulosCarro.forEach( producto => {
   console.log(total);
+  console.log(producto.precio);
+  console.log(producto.cantidad);
+  total = total + producto.precio * producto.cantidad;
+  console.log(total);
+  document.getElementById("totalNumero").innerHTML = "$" + total;
+  })
 }
+
+//Consultar API para hora y ubicacion (no aplica al proyecto pero es para el desafio)//
+const kelvin = 273.15;
+
+const obtenerClima = () => {
+  let ciudad = "Argentina";
+  let pais = "AR";
+  consultarAPI(ciudad, pais);
+}
+
+const consultarAPI = async (ciudad, pais) => {
+  const apiKey = "14b998e11d412cab5b7d0dffc9be38f1";
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${apiKey}`;
+  const respuesta = await fetch(url);
+  const resultado = await respuesta.json();
+
+  const {
+    name,
+    main
+  } = resultado;
+
+  let divResultado = document.querySelector("#temp");
+  //cálculo para convertir grados kelvin a celsius - el codigo &#x2103 aplica el simbolo de grados
+  divResultado.innerHTML = `<p>${name}</br>${parseFloat(main.temp-kelvin,10).toFixed(1)} <span> &#x2103;</span></p>`;
+}
+
+obtenerClima();
