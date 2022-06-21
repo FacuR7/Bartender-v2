@@ -40,6 +40,12 @@ header {
   font-size: 2.5rem;
   padding-right: 1rem;
 }
+.logoNombre {
+  display: block;
+}
+.logoNombreBlanco {
+  display: none;
+}
 .sidebar {
   height: 100%;
   width: 0;
@@ -47,7 +53,7 @@ header {
   z-index: 4;
   top: 0;
   left: 0;
-  background-color: rgb(206, 240, 250);
+  background-color: rgb(206, 240, 250, 0.945);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -56,8 +62,8 @@ header {
 .sidebar a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
-  color: #000000;
+  color: inherit;
+  font-size: 1.6rem;
   display: block;
   transition: 0.3s;
 }
@@ -80,7 +86,7 @@ header {
   z-index: 3;
   top: 0;
   right: 0;
-  background-color: rgb(206, 240, 250);
+  background-color: rgb(206, 240, 250, 0.945);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -300,15 +306,6 @@ input:checked + .slider:before {
 .slider.round::before {
   border-radius: 20px;
 }
-.modoOscuro {
-  background-color: rgb(1, 51, 75);
-  color: white;
-}
-.modoOscuroClaro {
-  background-color: rgb(206, 240, 250);
-  color: black;
-  font-weight: bold;
-}
 .tablaCarro {
   display: flex;
   flex-direction: column;
@@ -330,12 +327,16 @@ input:checked + .slider:before {
   position: relative;
   margin-top: 1rem;
 }
-#botonVaciar {
+.botonVaciar {
   margin: 0;
   margin-top: 1rem;
   position: absolute;
   top: 50%;
   left: 50%;
+  border: none;
+  height: 3rem;
+  width: 8rem;
+  border-radius: 25px;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   color: white;
@@ -385,10 +386,17 @@ tr {
   justify-content: space-between;
   margin-bottom: 2rem;
 }
-#logoMenu {
+.logoMenu {
   width: 5rem;
   height: 5rem;
   margin-bottom: 1rem;
+  display: block;
+}
+.logoMenuBlanco {
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+  display: none;
 }
 .sidebarSombra {
   box-shadow: 300px 0px 0px 10px rgba(0,0,0,0.5);
@@ -404,4 +412,16 @@ tr {
   text-align: right;
   margin-top: 1rem;
   margin-right: 2rem;
+}
+.modoOscuro {
+  background-color: rgba(1, 52, 75, 0.945);
+  color: white;
+}
+.modoOscuroTexto {
+  color: white;
+}
+.modoOscuroClaro {
+  background-color: rgb(206, 240, 250, 0.945);
+  color: black;
+  font-weight: bold;
 }

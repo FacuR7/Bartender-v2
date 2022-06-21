@@ -17,12 +17,9 @@
       <div class="header_menu" onclick="openMenu(), closeCarro()">
         <ion-icon name="reorder-three-outline"></ion-icon>
       </div>
-      <div class="header_logoFrase">
-        <img
-          src="./assets/LogoNombre.png"
-          src="./assets/LogoNombre.png"
-          alt=""
-        />
+      <div id="logo" class="header_logoFrase">
+        <img class="logoNombre" src="./assets/LogoNombre.png"/>
+        <img class="logoNombreBlanco" src="./assets/LogoNombreBlanco.png"/>
       </div>
       <div class="header_carro" onclick="openCarro(), closeMenu()">
         <ion-icon name="cart-outline"></ion-icon>
@@ -107,11 +104,12 @@
     </div>
     <div id="sidebarMenu" class="sidebar">
       <div id="logoClima">
-        <img id="logoMenu" src="./assets/Logo.png" alt="logo"/>
+        <img id="logoSidebar" class="logoMenu" src="./assets/Logo.png" alt="logo"/>
+        <img id="logoSidebar" class="logoMenuBlanco" src="./assets/LogoBlanco.png" alt="logo"/>
         <h2 id="temp"></h2>
       </div>  
-      <div id="sidebarTexto">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
+      <div class="sidebarTexto">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()" style="font-size:3rem;">×</a>
         <a href="#">Inicio</a>
         <a href="#dropdown" onclick="openCategorias()">Tienda</a>
         <a href="#">Contacto</a>
@@ -145,7 +143,7 @@
         <h1 id="totalNumero"></h1>
       </div>
       <div id="boton">
-      <button id="botonVaciar">Vaciar Carrito</button>
+      <button id="botonVaciar" class="botonVaciar">Vaciar Carrito</button>
       </div>
     </div>
     <div class="dropdown" id="dropdown">

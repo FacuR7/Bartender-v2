@@ -2,7 +2,7 @@
 
 function mayorEdad () {
   Swal.fire({
-    title: 'Sos Mayor de edad?',
+    title: 'Bienvenid@ a Bartender!',
     text: "Debes tener al menos 18 años para entrar a la tienda",
     icon: 'warning',
     showCancelButton: true,
@@ -14,7 +14,7 @@ function mayorEdad () {
     if (result.isConfirmed) {
       Swal.fire(
         'Perfecto!',
-        'Bienvenid@ a Bartender',
+        'A disfrutar de la tienda!',
         'OK'
       ) 
     }
@@ -88,7 +88,12 @@ function modoOscuro () {
   document.querySelector(".promos").classList.toggle("modoOscuro");
   document.querySelector(".dropdown").classList.toggle("modoOscuro");
   document.querySelector(".dropdown_boton").classList.toggle("modoOscuroClaro");
-  document.querySelector(".dropdown_contenido a").classList.toggle("modoOscuroClaro");
+  document.querySelector(".botonVaciar").classList.toggle("modoOscuroClaro");
+
+  let textoSidebar = document.querySelectorAll(".sidebarTexto a");
+  textoSidebar.forEach(texto => {
+    texto.classList.toggle("modoOscuroTexto");
+  });
   let botonesAgregarCarro = document.querySelectorAll(".agregarCarro");
   botonesAgregarCarro.forEach(boton => {
     boton.classList.toggle("modoOscuroClaro");
@@ -102,8 +107,33 @@ function modoOscuro () {
     producto.classList.toggle("modoOscuro");
   });
   
-}
+  let logo = document.querySelector(".logoMenu");
+  if (logo.style.display === "none") {
+    logo.style.display = "block";
+  } else {
+    logo.style.display = "none";
+  }
 
+  let logoBlanco = document.querySelector(".logoMenuBlanco");
+  if (logoBlanco.style.display === "block") {
+    logoBlanco.style.display = "none";
+  } else {
+    logoBlanco.style.display = "block";
+  }
+
+  let logoMenu = document.querySelector(".logoNombre");
+  if (logoMenu.style.display === "none") {
+    logoMenu.style.display = "block";
+  } else {
+    logoMenu.style.display = "none";
+  }
+  let logoMenuBlanco = document.querySelector(".logoNombreBlanco");
+  if (logoMenuBlanco.style.display === "block") {
+    logoMenuBlanco.style.display = "none";
+  } else {
+    logoMenuBlanco.style.display = "block"; 
+  }
+}
 //Carrito de compras//
 
 const carritoCompras = document.getElementById("carro");
@@ -199,7 +229,7 @@ function carritoVisible() {
       <td>${producto.titulo}</td>
       <td style="font-size:1rem; font-weight:bold">${producto.precio}</td>
       <td>${producto.cantidad}</td>
-      <td class="borrar-producto" data-id="${producto.id}"><ion-icon name="trash-outline"></ion-icon></td>  
+      <td  class="borrar-producto" data-id="${producto.id}"><ion-icon name="trash-outline"></ion-icon></td>  
     `;
 
     contenidoCarrito.appendChild(row);
