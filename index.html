@@ -145,6 +145,9 @@
       <div id="boton">
       <button id="botonVaciar" class="botonVaciar">Vaciar Carrito</button>
       </div>
+      <div id="botonCompra">
+        <button id="botonFin" class="botonFin">Continuar Compra</button>
+      </div>
     </div>
     <div class="dropdown" id="dropdown">
       <button id="dropdown_boton" class="dropdown_boton" onclick="myFunction()">Categorias</button>
@@ -421,6 +424,63 @@
         <p><button class="agregarCarro" data-id="43">Agregar al Carro</button></p>
       </div>
     </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Envio</h1>
+  <p>Por favor, ingrese sus datos de envio</p>
+  <hr />
+  <div class="form">
+    
+  <div class="fields fields--2">
+    <label class="field">
+      <span class="field__label" for="firstname">Nombre</span>
+      <input class="field__input" type="text" id="firstname" value="John" />
+    </label>
+    <label class="field">
+      <span class="field__label" for="lastname">Apellido</span>
+      <input class="field__input" type="text" id="lastname" value="Doe" />
+    </label>
+  </div>
+  <label class="field">
+    <span class="field__label" for="address">Direccion</span>
+    <input class="field__input" type="text" id="address" />
+  </label>
+  <label class="field">
+    <span class="field__label" for="country">Pais</span>
+    <select class="field__input" id="country">
+      <option value=""></option>
+      <option value="unitedstates">Argentina</option>
+    </select>
+  </label>
+  <div class="fields fields--3">
+    <label class="field">
+      <span class="field__label" for="zipcode">Codigo Postal</span>
+      <input class="field__input" type="text" id="zipcode" />
+    </label>
+    <label class="field">
+      <span class="field__label" for="city">Ciudad</span>
+      <input class="field__input" type="text" id="city" />
+    </label>
+    <label class="field">
+      <span class="field__label" for="state">Provincia</span>
+      <select class="field__input" id="state">
+        <option value=""></option>
+      </select>
+    </label>
+  </div>
+  </div>
+  <hr>
+  <button class="button">Continuar</button>
+      </div>
+    </div>
+    <footer>
+      <div class="footer_contenedor">
+        <div class="footer_contenedor_logo">
+          <img src="./assets/logo.png" alt="logo"/>
+        </div>
+      </div>    
+    </footer>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

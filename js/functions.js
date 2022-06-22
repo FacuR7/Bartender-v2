@@ -89,6 +89,7 @@ function modoOscuro () {
   document.querySelector(".dropdown").classList.toggle("modoOscuro");
   document.querySelector(".dropdown_boton").classList.toggle("modoOscuroClaro");
   document.querySelector(".botonVaciar").classList.toggle("modoOscuroClaro");
+  document.querySelector(".botonFin").classList.toggle("modoOscuroClaro");
 
   let textoSidebar = document.querySelectorAll(".sidebarTexto a");
   textoSidebar.forEach(texto => {
@@ -277,3 +278,24 @@ const consultarAPI = async (ciudad, pais) => {
 }
 
 obtenerClima();
+
+// ventana emergente fin de compra //
+
+var modal = document.getElementById("myModal");
+var boton = document.getElementById("botonFin");
+var span = document.getElementsByClassName("close")[0];
+
+boton.onclick = function() {
+  modal.style.display = "block";
+  closeCarro();
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
