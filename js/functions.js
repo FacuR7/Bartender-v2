@@ -238,18 +238,18 @@ function carritoVisible() {
 }
 
 // Calcular el total del carrito
+let totalCarro = 0;
 
 function calcularTotal () {
-  
-  let total = 0;
-articulosCarro.forEach( producto => {
-  console.log(total);
-  console.log(producto.precio);
-  console.log(producto.cantidad);
-  total = total + producto.precio * producto.cantidad;
-  console.log(total);
-  document.getElementById("totalNumero").innerHTML = "$" + total;
+  totalCarro = 0;
+  articulosCarro.forEach( producto => {
+    console.log(totalCarro);
+    console.log(producto.precio);
+    console.log(producto.cantidad);
+    totalCarro = totalCarro + producto.precio * producto.cantidad;
+    document.getElementById("totalNumero").innerHTML = "$" + totalCarro;
   })
+  console.log(totalCarro);
 }
 
 //Consultar API para hora y ubicacion (no aplica al proyecto pero es para el desafio)//
@@ -281,9 +281,9 @@ obtenerClima();
 
 // ventana emergente fin de compra //
 
-var modal = document.getElementById("myModal");
-var boton = document.getElementById("botonFin");
-var span = document.getElementsByClassName("close")[0];
+let modal = document.getElementById("myModal");
+let boton = document.getElementById("botonFin");
+let span = document.getElementsByClassName("close")[0];
 
 boton.onclick = function() {
   modal.style.display = "block";
@@ -298,4 +298,100 @@ window.onclick = function(event) {
   if (event.target === modal) {
     modal.style.display = "none";
   }
+}
+
+// Ventana de calculo de cuotas //
+
+function continuarPago() {
+  let modalEnvio = document.getElementById("myModal");
+  let modalPago = document.getElementById("modalPago");
+
+  modalEnvio.style.display = "none";
+  modalPago.style.display = "block";
+}
+function volverPago() {
+  let modalEnvio = document.getElementById("myModal");
+  let modalPago = document.getElementById("modalPago");
+  let contenidoCuotas = document.getElementById("contenidoCuotas");
+
+  modalEnvio.style.display = "block";
+  modalPago.style.display = "none";
+  contenidoCuotas.innerHTML = "";
+}
+
+function calcularCuotas() {
+
+  let nombre = document.getElementById("firstname").value;
+  let apellido = document.getElementById("lastname").value;
+  let direccion = document.getElementById("address").value;
+  let ciudad = document.getElementById("city").value;
+  let provincia = document.getElementById("state").value;
+  let codigoPostal = document.getElementById("zipcode").value;
+  let total = document.getElementById("totalNumero").value;
+  let cuotas = document.getElementById("cuotas").value;
+  let botonContinuar = document.getElementById("botonPago");
+  let modalEnvio = document.getElementById("myModal")
+  let modalPago = document.getElementById("modalPago")
+  let contenidoCuotas = document.getElementById("contenidoCuotas");
+
+  if (cuotas === "1") {
+    contenidoCuotas.innerHTML = `<h2 id="subtituloPago">Resumen de compra</h2>
+    <p id="mensajePago">Por favor, revise que los datos sean correctos</p>
+    <div id="datosEnvio">
+      <p>Nombre: ${nombre}</p>
+      <p>Apellido: ${apellido}</p>
+      <p>Direccion de envio: ${direccion}, ${codigoPostal}, ${ciudad}, ${provincia}</p>
+      <p class="totalPago">Total: $${totalCarro}</p>
+    </div>
+    <hr/ > 
+    <p id="mensajePago">Ingrese su correo electronico para recibir actualizaciones de su pedido y ofertas especiales (opcional)</p>
+    <label class="field">
+      <span class="field__label" for="firstname">Correo electronico</span>
+      <input class="field__input" type="text" id="firstname"/>
+    </label>`;
+  }
+  if (cuotas === "3") {
+    valorCuota = totalCarro / 3;
+    contenidoCuotas.innerHTML = `<h2 id="subtituloPago">Resumen de compra</h2>
+    <p id="mensajePago">Por favor, revise que los datos sean correctos</p>
+    <div id="datosEnvio">
+      <p>Nombre: ${nombre}</p>
+      <p>Apellido: ${apellido}</p>
+      <p>Direccion de envio: ${direccion}, ${codigoPostal}, ${ciudad}, ${provincia}</p>
+      <p class="totalPago">Total: $${totalCarro}</p>
+      <p class="totalCuotas">3 Cuotas sin interes de $${valorCuota}</p>
+    </div>
+    <hr/ > 
+    <p id="mensajePago">Ingrese su correo electronico para recibir actualizaciones de su pedido y ofertas especiales (opcional)</p>
+    <label class="field">
+      <span class="field__label" for="firstname">Correo electronico</span>
+      <input class="field__input" type="text" id="firstname"/>
+    </label>`;
+  }
+  if (cuotas === "6") {
+    valorCuota = totalCarro / 6;
+    contenidoCuotas.innerHTML = `<h2 id="subtituloPago">Resumen de compra</h2>
+    <p id="mensajePago">Por favor, revise que los datos sean correctos</p>
+    <div id="datosEnvio">
+      <p>Nombre: ${nombre}</p>
+      <p>Apellido: ${apellido}</p>
+      <p>Direccion de envio: ${direccion}, ${codigoPostal}, ${ciudad}, ${provincia}</p>
+      <p class="totalPago">Total: $${totalCarro}</p>
+      <p class="totalCuotas">6 Cuotas sin interes de $${valorCuota.toFixed(2)}</p>
+    </div>
+    <hr/ > 
+    <p id="mensajePago">Ingrese su correo electronico para recibir actualizaciones de su pedido y ofertas especiales (opcional)</p>
+    <label class="field">
+      <span class="field__label" for="firstname">Correo electronico</span>
+      <input class="field__input" type="text" id="firstname"/>
+    </label>`;
+  }
+}
+
+function closePago() {
+  let modalEnvio = document.getElementById("myModal");
+  let modalPago = document.getElementById("modalPago");
+
+  modalEnvio.style.display = "none";
+  modalPago.style.display = "none";
 }

@@ -444,8 +444,29 @@ tr {
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.7); 
 }
-
-
+#modalPago-contenido {
+  height: 60rem;
+}
+.modalHeader {
+  display: grid;
+  grid-template-areas: "cerrar logo"
+                        "titulo logo";    
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 8rem;
+}
+#subtituloEnvio {
+  grid-area: titulo;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+#logoEnvio {
+  grid-area: logo;
+  width: 52%;
+  height: 75%;
+  justify-self: right;
+  align-self: center;
+}
 .modal-content {
   background-color: rgb(206, 240, 250, 0.945);
   margin: auto;
@@ -460,6 +481,7 @@ tr {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  grid-area: cerrar;
 }
 
 .close:hover,
@@ -545,6 +567,28 @@ hr {
 }
 .button:focus-visible {
   background-color: #333;
+}
+#modalPago {
+  display: none;
+}
+#datosEnvio {
+  font-size: 1rem;
+  font-weight: bold;
+}
+#subtituloPago {
+  font-weight: bolder;
+  font-size: 1.4rem;
+}
+#mensajePago {
+  font-size: 0.8rem;
+}
+.totalPago {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.totalCuotas {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 .modoOscuro {
   background-color: rgba(1, 52, 75, 0.845);

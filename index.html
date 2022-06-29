@@ -426,20 +426,22 @@
     </div>
     <div id="myModal" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
-        <h1 id="subtituloEnvio">Envio</h1>
+        <div class="modalHeader">
+          <span class="close">&times;</span>
+          <h1 id="subtituloEnvio">Envio</h1>
+          <img id="logoEnvio" src="./assets/Logo.png" alt="Logo"/>
+        </div>
         <p>Por favor, ingrese sus datos de envio</p>
         <hr />
         <div class="form">
-        
       <div class="fields fields--2">
         <label class="field">
           <span class="field__label" for="firstname">Nombre</span>
-          <input class="field__input" type="text" id="firstname" value="John" />
+          <input class="field__input" type="text" id="firstname"/>
         </label>
         <label class="field">
           <span class="field__label" for="lastname">Apellido</span>
-          <input class="field__input" type="text" id="lastname" value="Doe" />
+          <input class="field__input" type="text" id="lastname"/>
         </label>
       </div>
       <label class="field">
@@ -465,27 +467,46 @@
         <label class="field">
           <span class="field__label" for="state">Provincia</span>
           <select class="field__input" id="state">
-            <option value="buenosaires">Buenos Aires</option>
-            <option value="rosario">Rosario</option>
-            <option value="cordoba">Cordoba</option>
-            <option value="santafe">Santa fe</option>
-            <option value="rionegro">Rio Negro</option>
-            <option value="lapampa">La Pampa</option>
+            <option value=""></option>
+            <option value="Buenos Aires">Buenos Aires</option>
+            <option value="Rosario">Rosario</option>
+            <option value="Rordoba">Cordoba</option>
+            <option value="Santa Fe">Santa fe</option>
+            <option value="Rio Negro">Rio Negro</option>
+            <option value="La Pampa">La Pampa</option>
           </select>
         </label>
       </div>
     </div>
     <hr>
-    <button class="button">Continuar</button>
+    <button onclick="continuarPago()" id="botonPago" class="button">Continuar con el pago</button>
       </div>
     </div>
-    <footer>
-      <div class="footer_contenedor">
-        <div class="footer_contenedor_logo">
-          <img src="./assets/logo.png" alt="logo"/>
+    <div id="modalPago" class="modal">
+      <div class="modal-content" id="modalPago-contenido">
+        <div class="modalHeader">
+          <span onclick="closePago()" class="close">&times;</span>
+          <h1 id="subtituloEnvio">Pago</h1>
+          <img id="logoEnvio" src="./assets/Logo.png" alt="Logo"/>
         </div>
-      </div>    
-    </footer>
+        <p>Por favor, seleccione la cantidad de cuotas</p>
+        <div class="form">
+        <div class="fields fields--2">
+        <select class="seleccionCuotas" id="cuotas">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="3">3</option>
+          <option value="6">6</option>
+        </select>
+        <button id="calculoCuotas" class="button" onclick="calcularCuotas()">Calcular cuotas</button>
+        </div>
+        <hr />          
+        <div id="contenidoCuotas"></div>
+        <hr>
+        <button id="botonPago" class="button">Confirmar Compra</button>
+        <button onclick="volverPago()" id="botonVolver" class="button">Modificar datos</button>
+      </div>
+    </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
