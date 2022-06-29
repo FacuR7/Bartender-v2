@@ -90,6 +90,7 @@ function modoOscuro () {
   document.querySelector(".dropdown_boton").classList.toggle("modoOscuroClaro");
   document.querySelector(".botonVaciar").classList.toggle("modoOscuroClaro");
   document.querySelector(".botonFin").classList.toggle("modoOscuroClaro");
+  document.querySelector(".dropdown_contenido a").classList.toggle("modoOscuroClaro");
 
   let textoSidebar = document.querySelectorAll(".sidebarTexto a");
   textoSidebar.forEach(texto => {
@@ -344,7 +345,7 @@ function calcularCuotas() {
       <p class="totalPago">Total: $${totalCarro}</p>
     </div>
     <hr/ > 
-    <p id="mensajePago">Ingrese su correo electronico para recibir actualizaciones de su pedido y ofertas especiales (opcional)</p>
+    <p id="mensajePago">Ingrese su correo electronico para recibir actualizaciones de su pedido y ofertas especiales</p>
     <label class="field">
       <span class="field__label" for="firstname">Correo electronico</span>
       <input class="field__input" type="text" id="firstname"/>
@@ -363,7 +364,7 @@ function calcularCuotas() {
       <p class="totalCuotas">3 Cuotas sin interes de $${valorCuotaFinal}</p>
     </div>
     <hr/ > 
-    <p id="mensajePago">Ingrese su correo electronico para recibir actualizaciones de su pedido y ofertas especiales (opcional)</p>
+    <p id="mensajePago">Ingrese su correo electronico para recibir actualizaciones de su pedido y ofertas especiales</p>
     <label class="field">
       <span class="field__label" for="firstname">Correo electronico</span>
       <input class="field__input" type="text" id="firstname"/>
@@ -382,7 +383,7 @@ function calcularCuotas() {
       <p class="totalCuotas">6 Cuotas sin interes de $${valorCuotaFinal}</p>
     </div>
     <hr/ > 
-    <p id="mensajePago">Ingrese su correo electronico para recibir actualizaciones de su pedido y ofertas especiales (opcional)</p>
+    <p id="mensajePago">Ingrese su correo electronico para recibir actualizaciones de su pedido y ofertas especiales</p>
     <label class="field">
       <span class="field__label" for="firstname">Correo electronico</span>
       <input class="field__input" type="text" id="firstname"/>
@@ -396,4 +397,25 @@ function closePago() {
 
   modalEnvio.style.display = "none";
   modalPago.style.display = "none";
+}
+function finalizarCompra() {
+  let modalEnvio = document.getElementById("myModal");
+  let modalPago = document.getElementById("modalPago");
+
+  modalEnvio.style.display = "none";
+  modalPago.style.display = "none";
+
+  articulosCarro = [];
+  limpiarHTML();
+  document.getElementById("totalNumero").innerHTML = "$0";
+  calcularTotal()
+
+  Swal.fire({
+    title: 'Gracias por tu compra!',
+    text: 'Recibiras los detalles en tu email',
+    imageUrl: './assets/Logo.png',
+    imageWidth: 140,
+    imageHeight: 150,
+    imageAlt: 'Custom image',
+  })
 }
