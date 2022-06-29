@@ -352,6 +352,7 @@ function calcularCuotas() {
   }
   if (cuotas === "3") {
     valorCuota = totalCarro / 3;
+    let valorCuotaFinal = valorCuota.toFixed(2);
     contenidoCuotas.innerHTML = `<h2 id="subtituloPago">Resumen de compra</h2>
     <p id="mensajePago">Por favor, revise que los datos sean correctos</p>
     <div id="datosEnvio">
@@ -359,7 +360,7 @@ function calcularCuotas() {
       <p>Apellido: ${apellido}</p>
       <p>Direccion de envio: ${direccion}, ${codigoPostal}, ${ciudad}, ${provincia}</p>
       <p class="totalPago">Total: $${totalCarro}</p>
-      <p class="totalCuotas">3 Cuotas sin interes de $${valorCuota}</p>
+      <p class="totalCuotas">3 Cuotas sin interes de $${valorCuotaFinal}</p>
     </div>
     <hr/ > 
     <p id="mensajePago">Ingrese su correo electronico para recibir actualizaciones de su pedido y ofertas especiales (opcional)</p>
@@ -370,6 +371,7 @@ function calcularCuotas() {
   }
   if (cuotas === "6") {
     valorCuota = totalCarro / 6;
+    let valorCuotaFinal = valorCuota.toFixed(2);
     contenidoCuotas.innerHTML = `<h2 id="subtituloPago">Resumen de compra</h2>
     <p id="mensajePago">Por favor, revise que los datos sean correctos</p>
     <div id="datosEnvio">
@@ -377,7 +379,7 @@ function calcularCuotas() {
       <p>Apellido: ${apellido}</p>
       <p>Direccion de envio: ${direccion}, ${codigoPostal}, ${ciudad}, ${provincia}</p>
       <p class="totalPago">Total: $${totalCarro}</p>
-      <p class="totalCuotas">6 Cuotas sin interes de $${valorCuota.toFixed(2)}</p>
+      <p class="totalCuotas">6 Cuotas sin interes de $${valorCuotaFinal}</p>
     </div>
     <hr/ > 
     <p id="mensajePago">Ingrese su correo electronico para recibir actualizaciones de su pedido y ofertas especiales (opcional)</p>
