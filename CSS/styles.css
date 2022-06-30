@@ -225,7 +225,6 @@ header {
   cursor: pointer;
   width: 100%;
   font-size: 0.75rem;
-  padding-bottom: 1rem;
 }
 
 .indexProductos_producto button:hover {
@@ -417,10 +416,10 @@ tr {
   display: none;
 }
 .sidebarSombra {
-  box-shadow: 300px 0px 0px 10px rgba(0,0,0,0.5);
+  box-shadow: 300px 0px 0px 1000px rgba(0,0,0,0.5);
 }
 .carroSombra {
-  box-shadow: -300px 0px 0px 10px rgba(0,0,0,0.5);
+  box-shadow: -300px 0px 0px 1000px rgba(0,0,0,0.5);
 }
 .carousel-indicators {
   z-index: 1;
@@ -447,6 +446,9 @@ tr {
 }
 #modalPago-contenido {
   height: 60rem;
+}
+#modalContacto-contenido {
+  height: 40rem;
 }
 .modalHeader {
   display: grid;

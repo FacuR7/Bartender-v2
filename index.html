@@ -110,9 +110,9 @@
       </div>  
       <div class="sidebarTexto">
         <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()" style="font-size:3rem;">×</a>
-        <a href="#">Inicio</a>
-        <a href="#dropdown" onclick="openCategorias()">Tienda</a>
-        <a href="#">Contacto</a>
+        <a href="#" onclick="closeMenu()">Inicio</a>
+        <a href="#dropdown" onclick="closeMenu()">Tienda</a>
+        <a id="botonContacto" href="#">Contacto</a>
         <a href="#">Elegi tu Trago</a>
         <label class="toggle">
           <span class="onoff">Tema Oscuro</span>
@@ -277,6 +277,12 @@
         <p><button class="agregarCarro" data-id="19">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
+        <img src="./assets/PasosPomelo.png" alt="Gaseosa" style="width: 100%" />
+        <h1>P. De Los Toros Pomelo</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>170</p>
+        <p><button class="agregarCarro" data-id="23">Agregar al Carro</button></p>
+      </div>
+      <div class="indexProductos_producto">
         <img src="./assets/Citric.webp" alt="Jugo" style="width: 100%" />
         <h1>Jugo Citric Naranja</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>270</p>
@@ -289,61 +295,55 @@
         <p><button class="agregarCarro" data-id="21">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
+        <img src="./assets/RedBull.webp" alt="redbull" style="width: 100%" />
+        <h1>Red Bull Lata 250ml</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>330</p>
         <p><button class="agregarCarro" data-id="22">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
-        <p><button class="agregarCarro" data-id="23">Agregar al Carro</button></p>
-      </div>
-      <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
+        <img src="./assets/Granadina.jpg" alt="granadina" style="width: 100%" />
+        <h1>Granadina Dellepiane 750ml</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>320</p>
         <p><button class="agregarCarro" data-id="24">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
+        <img src="./assets/GingerLimon.jpg" alt="Fernet" style="width: 100%" />
+        <h1>Ginger Ale Limon 500ml</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>250</p>
         <p><button class="agregarCarro" data-id="25">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
+        <img src="./assets/GingeHibiscus.png" alt="Fernet" style="width: 100%" />
+        <h1>Ginge Ale Hibiscus 500ml</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>250</p>
         <p><button class="agregarCarro" data-id="26">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
+        <img src="./assets/GingerCurcuma.jpg" alt="Fernet" style="width: 100%" />
+        <h1>Ginger Ale Curcuma 500ml</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>250</p>
         <p><button class="agregarCarro" data-id="27">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
+        <img src="./assets/GingerPomelo.jpg" alt="Fernet" style="width: 100%" />
+        <h1>Ginger Ale Pomelo 500ml</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>250</p>
         <p><button class="agregarCarro" data-id="28">Agregar al Carro</button></p>
       </div>
-      <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
-        <p><button class="agregarCarro" data-id="29">Agregar al Carro</button></p>
-      </div>
     </div>
-    <p class="subtitulos" id="especias">Especias y Botanicos</p>
+    <p class="subtitulos" id="especias" style=>Especias y Botanicos</p>
     <div class="indexProductos" id="listaEspecia">
       <div class="indexProductos_producto">
         <img src="./assets/limon.webp" alt="Limon" style="width: 100%" />
         <h1>Limon Organico 1kg</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>200</p>
         <p><button class="agregarCarro" data-id="30">Agregar al Carro</button></p>
+      </div>
+      <div class="indexProductos_producto">
+        <img src="./assets/Lima.jpg" alt="Fernet" style="width: 100%" />
+        <h1>Lima Organica 1kg</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>380</p>
+        <p><button class="agregarCarro" data-id="38">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
         <img src="./assets/pimientaJamaica.jpg" alt="Pimienta" style="width: 100%" />
@@ -388,40 +388,22 @@
         <p><button class="agregarCarro" data-id="37">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
-        <p><button class="agregarCarro" data-id="38">Agregar al Carro</button></p>
-      </div>
-      <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
+        <img src="./assets/Azucar.png" alt="Fernet" style="width: 100%" />
+        <h1>Azucar Mascabo 250gr</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>170</p>
         <p><button class="agregarCarro" data-id="39">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
+        <img src="./assets/Menta.jpg" alt="Fernet" style="width: 100%" />
+        <h1>Menta fresca 50gr</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>140</p>
         <p><button class="agregarCarro" data-id="40">Agregar al Carro</button></p>
       </div>
       <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
+        <img src="./assets/ClavoDeOlor.jpg" alt="Fernet" style="width: 100%" />
+        <h1 style="padding-top: 0.7rem; padding-bottom: 0.5rem">Clavo de Olor 50gr</h1>
+        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>350</p>
         <p><button class="agregarCarro" data-id="41">Agregar al Carro</button></p>
-      </div>
-      <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
-        <p><button class="agregarCarro" data-id="42">Agregar al Carro</button></p>
-      </div>
-      <div class="indexProductos_producto">
-        <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
-        <h1>Fernet Branca 750cc</h1>
-        <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
-        <p><button class="agregarCarro" data-id="43">Agregar al Carro</button></p>
       </div>
     </div>
     <div id="myModal" class="modal">
@@ -505,6 +487,40 @@
         <hr>
         <button onclick="finalizarCompra()" id="botonPago" class="button">Confirmar Compra</button>
         <button onclick="volverPago()" id="botonVolver" class="button">Modificar datos</button>
+        </div>
+      </div>
+    </div>  
+    <div id="modalContacto" class="modal">
+      <div class="modal-content" id="modalContacto-contenido">
+        <div class="modalHeader">
+          <span id="cerrar" class="close">&times;</span>
+          <h1 id="subtituloEnvio">Contacto</h1>
+          <img id="logoEnvio" src="./assets/Logo.png" alt="Logo"/>
+        </div>
+        <p>Por favor, ingrese sus datos de contacto</p>
+        <hr />
+        <div class="form">
+      <div class="fields fields--2">
+        <label class="field">
+          <span class="field__label" for="firstname">Nombre</span>
+          <input class="field__input" type="text" id="firstname"/>
+        </label>
+        <label class="field">
+          <span class="field__label" for="lastname">Apellido</span>
+          <input class="field__input" type="text" id="lastname"/>
+        </label>
+      </div>
+      <label class="field">
+        <span class="field__label" for="firstname">Correo electronico</span>
+        <input autocomplete="on" class="field__input" type="text" id="firstname"/>
+      </label>
+      <label class="field">
+        <span class="field__label" for="firstname">Mensaje</span>
+        <textarea style="height: 5rem;" class="field__input" type="text" id="firstname"></textarea>
+      </label>
+    </div>
+    <hr>
+    <button onclick="FinalizarContacto()" id="botonFinContacto" class="button">Continuar</button>
       </div>
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

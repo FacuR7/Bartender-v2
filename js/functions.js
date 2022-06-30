@@ -398,6 +398,9 @@ function closePago() {
   modalEnvio.style.display = "none";
   modalPago.style.display = "none";
 }
+
+// al tocar el boton de finalizar compra //
+
 function finalizarCompra() {
   let modalEnvio = document.getElementById("myModal");
   let modalPago = document.getElementById("modalPago");
@@ -419,3 +422,37 @@ function finalizarCompra() {
     imageAlt: 'Custom image',
   })
 }
+
+// Ventana de Contacto //
+
+
+let modalContacto = document.getElementById("modalContacto");
+let botonContacto = document.getElementById("botonContacto");
+let spanContacto = document.getElementById("cerrar");
+let botonFinContacto = document.getElementById("botonFinContacto");
+
+botonContacto.onclick = function() {
+  modalContacto.style.display = "block";
+  closeMenu();
+}
+spanContacto.onclick = function() {
+  modalContacto.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target === modalContacto) {
+    modalContacto.style.display = "none";
+  }
+}
+botonFinContacto.onclick = function() {
+  modalContacto.style.display = "none";
+
+  Swal.fire({
+    title: 'Gracias por contactarte!',
+    text: 'Recibiras una respuesta a la brevedad en tu correo electronico',
+    imageUrl: './assets/Logo.png',
+    imageWidth: 140,
+    imageHeight: 150,
+    imageAlt: 'Custom image',
+  })
+}  
+
