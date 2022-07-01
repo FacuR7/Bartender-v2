@@ -430,6 +430,7 @@ let modalContacto = document.getElementById("modalContacto");
 let botonContacto = document.getElementById("botonContacto");
 let spanContacto = document.getElementById("cerrar");
 let botonFinContacto = document.getElementById("botonFinContacto");
+let contactoFooter = document.getElementById("contactoFooter");
 
 botonContacto.onclick = function() {
   modalContacto.style.display = "block";
@@ -454,5 +455,9 @@ botonFinContacto.onclick = function() {
     imageHeight: 150,
     imageAlt: 'Custom image',
   })
+}
+contactoFooter.onclick = function() {
+  modalContacto.style.display = "block";
+  closeMenu();
 }  
 
