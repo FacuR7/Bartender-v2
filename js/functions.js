@@ -461,3 +461,119 @@ contactoFooter.onclick = function() {
   closeMenu();
 }  
 
+// Funcion "Elegi tu Trago" //
+
+function openTragos() {
+
+  let modalTragos = document.getElementById("modalTragos");
+
+  modalTragos.style.display = "block";
+  closeMenu();
+}
+
+function closeTragos() {
+  let modalTragos = document.getElementById("modalTragos");
+
+  modalTragos.style.display = "none";
+}
+
+function tragos() {
+  let tragoSeleccionado = document.getElementById("tragos").value;
+  let contenidoTrago = document.getElementById("contenidoTragos");
+  let botonTragos = document.getElementById("botonTragos");
+
+  if (tragoSeleccionado === "1") {
+    contenidoTrago.innerHTML = `
+    <h2 id="subtituloTrago">Fernet-Cola</h2>
+    <div id="datosTrago">
+      <img src="./assets/Fernet-coca.jpg" alt="FernetCola" style="width:42%;">
+      <ion-icon name="reorder-two-outline" style="font-size: 12rem; font-weight: bold;"></ion-icon>
+      <div id="productosTrago">
+        <img src="./assets/Branca.jpg" alt="Branca" style="width:60%;">
+        <img src="./assets/CocaCola.jpg" alt="coca" style="width:60%;">
+      </div>
+    </div>
+    <hr>
+    <button id="botonTragos" class="button">Añadir al Carro ($1230)</button>`;
+
+    let botonTragos = document.getElementById("botonTragos");
+
+    botonTragos.onclick = function() {
+
+      let productoSeleccionado = document.getElementById("fernet");
+      leerDatosProducto(productoSeleccionado);
+
+      productoSeleccionado = document.getElementById("coca");
+      leerDatosProducto(productoSeleccionado);
+
+      calcularTotal();
+      closeTragos();  
+      openCarro();
+      
+    }
+  }
+  if (tragoSeleccionado === "2") {
+    contenidoTrago.innerHTML = `
+    <h2 id="subtituloTrago">Cuba Libre</h2>
+    <div id="datosTrago">
+      <img src="./assets/CubaLibre.jpg" alt="CubaLibre" style="width:42%;">
+      <ion-icon name="reorder-two-outline" style="font-size: 12rem; font-weight: bold;"></ion-icon>
+      <div id="productosTragoTriple">
+        <img src="./assets/RonHavana.jpg" alt="ron" style="width:100%;">
+        <img src="./assets/CocaCola.jpg" alt="coca" style="width:100%;">
+        <img src="./assets/Lima.jpg" alt="lima" style="width:80%; grid-area:producto3;">
+      </div>
+    </div>
+    <hr>
+    <button id="botonTragos" class="button">Añadir al Carro ($2230)</button>`;
+
+    let botonTragos = document.getElementById("botonTragos");
+
+    botonTragos.onclick = function() {
+
+      let productoSeleccionado = document.getElementById("ron");
+      leerDatosProducto(productoSeleccionado);
+
+      productoSeleccionado = document.getElementById("coca");
+      leerDatosProducto(productoSeleccionado);
+
+      productoSeleccionado = document.getElementById("lima");
+      leerDatosProducto(productoSeleccionado);
+
+      calcularTotal();
+      closeTragos();  
+      openCarro();
+      
+    }
+  }
+  if (tragoSeleccionado === "3") {
+    contenidoTrago.innerHTML = `
+    <h2 id="subtituloTrago">Campari Orange</h2>
+    <div id="datosTrago">
+      <img src="./assets/CampariOrange.jpg" alt="CampariOrange" style="width:42%;">
+      <ion-icon name="reorder-two-outline" style="font-size: 12rem; font-weight: bold;"></ion-icon>
+      <div id="productosTrago">
+        <img src="./assets/Campari.png" alt="campari" style="width:60%;">
+        <img src="./assets/Citric.webp" alt="citric" style="width:60%;">
+      </div>
+    </div>
+    <hr>
+    <button id="botonTragos" class="button">Añadir al Carro ($970)</button>`;
+
+    let botonTragos = document.getElementById("botonTragos");
+
+    botonTragos.onclick = function() {
+
+      let productoSeleccionado = document.getElementById("campari");
+      leerDatosProducto(productoSeleccionado);
+
+      productoSeleccionado = document.getElementById("citricNaranja");
+      leerDatosProducto(productoSeleccionado);
+
+      calcularTotal();
+      closeTragos();  
+      openCarro();
+      
+    }
+  }
+}

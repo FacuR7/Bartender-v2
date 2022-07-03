@@ -113,7 +113,7 @@
         <a href="#" onclick="closeMenu()">Inicio</a>
         <a href="#dropdown" onclick="closeMenu()">Tienda</a>
         <a id="botonContacto" href="#">Contacto</a>
-        <a href="#">Elegi tu Trago</a>
+        <a href="#" onclick="openTragos()">Elegi tu Trago <small style="font-size: 0.8rem; color: red;">Nuevo!</small></a>
         <label class="toggle">
           <span class="onoff">Tema Oscuro</span>
           <input type="checkbox" />
@@ -159,19 +159,19 @@
     </div>
     <h2 class="subtitulos" id="bebidas">Bebidas</h2>
     <div class="indexProductos" id="listaBebida">
-      <div class="indexProductos_producto">
+      <div class="indexProductos_producto" id="fernet">
         <img src="./assets/Branca.jpg" alt="Fernet" style="width: 100%" />
         <h1>Fernet Branca 750cc</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>980</p>
         <p><button class="agregarCarro" data-id="1">Agregar al Carro</button></p>
       </div>
-      <div class="indexProductos_producto">
+      <div class="indexProductos_producto" id="campari">
         <img src="./assets/Campari.png" alt="Campari" style="width: 100%" />
         <h1>Campari Aperitivo 750cc</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>700</p>
         <p><button class="agregarCarro" data-id="2">Agregar al Carro</button></p>
       </div>
-      <div class="indexProductos_producto">
+      <div class="indexProductos_producto" id="ron">
         <img src="./assets/RonHavana.jpg" alt="Ron" style="width: 100%" />
         <h1>Ron Havana Especial</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>1600</p>
@@ -264,7 +264,7 @@
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>250</p>
         <p><button class="agregarCarro" data-id="17">Agregar al Carro</button></p>
       </div>
-      <div class="indexProductos_producto">
+      <div class="indexProductos_producto" id="coca">
         <img src="./assets/CocaCola.jpg" alt="Gaseosa" style="width: 100%" />
         <h1>Coca-Cola Bot. 2,25L</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>250</p>
@@ -282,7 +282,7 @@
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>170</p>
         <p><button class="agregarCarro" data-id="23">Agregar al Carro</button></p>
       </div>
-      <div class="indexProductos_producto">
+      <div class="indexProductos_producto" id="citricNaranja">
         <img src="./assets/Citric.webp" alt="Jugo" style="width: 100%" />
         <h1>Jugo Citric Naranja</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>270</p>
@@ -339,7 +339,7 @@
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>200</p>
         <p><button class="agregarCarro" data-id="30">Agregar al Carro</button></p>
       </div>
-      <div class="indexProductos_producto">
+      <div class="indexProductos_producto" id="lima">
         <img src="./assets/Lima.jpg" alt="Fernet" style="width: 100%" />
         <h1>Lima Organica 1kg</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>380</p>
@@ -523,6 +523,29 @@
     <button onclick="FinalizarContacto()" id="botonFinContacto" class="button">Continuar</button>
       </div>
     </div>
+    <div id="modalTragos" class="modal">
+      <div class="modal-content" id="modalTragos-contenido">
+        <div class="modalHeader">
+          <span onclick="closeTragos()" class="close">&times;</span>
+          <h1 id="subtituloTragos">Elegi tu Trago</h1>
+          <img id="logoEnvio" src="./assets/Logo.png" alt="Logo"/>
+        </div>
+        <p>Esta funcion te permite elegir el trago de autor de la lista, y nosotros enviamos al carrito lo necesario</p>
+        <div class="form">
+        <div class="fields fields--2">
+        <select class="seleccionTrago" id="tragos">
+          <option value=""></option>
+          <option value="1">Fernet-Cola</option>
+          <option value="2">Cuba Libre</option>
+          <option value="3">Campari Orange</option>
+        </select>
+        <button id="elegiTrago" class="button" onclick="tragos()">Elegir Trago</button>
+        </div>
+        <hr />          
+        <div id="contenidoTragos"></div>
+        </div>
+      </div>
+    </div>  
     <footer>
       <div class="footerFlex">
         <img src="./assets/LogoBlanco.png" alt="logo" style="width: 35%; height: 45%;">
