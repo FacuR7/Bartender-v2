@@ -452,6 +452,9 @@ tr {
   height: 40rem;
   background-color: rgba(206, 240, 250, 0.945);
 }
+#modalEnvio-contenido {
+  background-color: rgba(206, 240, 250, 0.945);
+}
 .modalHeader {
   display: grid;
   grid-template-areas: "cerrar logo"
