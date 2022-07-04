@@ -113,7 +113,7 @@
         <a href="#" onclick="closeMenu()">Inicio</a>
         <a href="#dropdown" onclick="closeMenu()">Tienda</a>
         <a id="botonContacto" href="#">Contacto</a>
-        <a href="#" onclick="openTragos()">Elegi tu Trago <small style="font-size: 0.8rem; color: red;">Nuevo!</small></a>
+        <a href="#" onclick="openTragos()">Elegi tu Trago <small style="font-size: 0.7rem; color: red;">Nuevo!</small></a>
         <label class="toggle">
           <span class="onoff">Tema Oscuro</span>
           <input type="checkbox" />
@@ -225,7 +225,7 @@
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>3100</p>
         <p><button class="agregarCarro" data-id="11">Agregar al Carro</button></p>
       </div>
-      <div class="indexProductos_producto">
+      <div class="indexProductos_producto" id="ginBsAs">
         <img src="./assets/GinBsas.png" alt="Gin" style="width: 100%" />
         <h1>Gin Bs. Aires 750cc</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>2900</p>
@@ -249,7 +249,7 @@
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>750</p>
         <p><button class="agregarCarro" data-id="15">Agregar al Carro</button></p>
       </div>
-      <div class="indexProductos_producto">
+      <div class="indexProductos_producto" id="cynar">
         <img src="./assets/Cynar.jpg" alt="Cynar" style="width: 100%" />
         <h1>Aperitivo Cynar 750cc</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>700</p>
@@ -270,7 +270,7 @@
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>250</p>
         <p><button class="agregarCarro" data-id="18">Agregar al Carro</button></p>
       </div>
-      <div class="indexProductos_producto">
+      <div class="indexProductos_producto" id="tonica">
         <img src="./assets/Schweppes.jpg" alt="Gaseosa" style="width: 100%" />
         <h1>Tonica P. De Los Toros 1.5L</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>170</p>
@@ -288,7 +288,7 @@
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>270</p>
         <p><button class="agregarCarro" data-id="20">Agregar al Carro</button></p>
       </div>
-      <div class="indexProductos_producto">
+      <div class="indexProductos_producto" id="pomelo">
         <img src="./assets/CitricPomelo.jpg" alt="Jugo" style="width: 100%" />
         <h1>Jugo Citric Pomelo</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>270</p>
@@ -393,7 +393,7 @@
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>170</p>
         <p><button class="agregarCarro" data-id="39">Agregar al Carro</button></p>
       </div>
-      <div class="indexProductos_producto">
+      <div class="indexProductos_producto" id="menta">
         <img src="./assets/Menta.jpg" alt="Fernet" style="width: 100%" />
         <h1>Menta fresca 50gr</h1>
         <p class="precio"><ion-icon name="logo-usd" id="signoPesos"></ion-icon>140</p>
@@ -530,7 +530,7 @@
           <h1 id="subtituloTragos">Elegi tu Trago</h1>
           <img id="logoEnvio" src="./assets/Logo.png" alt="Logo"/>
         </div>
-        <p>Esta funcion te permite elegir el trago de autor de la lista, y nosotros enviamos al carrito lo necesario</p>
+        <p id="textoTragos">Esta funcion te permite elegir el trago que quieras preparar, y nosotros enviamos a tu carrito lo necesario</p>
         <div class="form">
         <div class="fields fields--2">
         <select class="seleccionTrago" id="tragos">
@@ -538,6 +538,8 @@
           <option value="1">Fernet-Cola</option>
           <option value="2">Cuba Libre</option>
           <option value="3">Campari Orange</option>
+          <option value="4">Gin Tonic</option>
+          <option value="5">Cynar Julep</option>
         </select>
         <button id="elegiTrago" class="button" onclick="tragos()">Elegir Trago</button>
         </div>
@@ -548,13 +550,14 @@
     </div>  
     <footer>
       <div class="footerFlex">
-        <img src="./assets/LogoBlanco.png" alt="logo" style="width: 35%; height: 45%;">
+        <img id="logoFooterBlanco" class="logoMenuBlanco" src="./assets/LogoBlanco.png" alt="logo" style="width: 35%; height: 45%;">
+        <img id="logoFooter" class="logoMenu" src="./assets/Logo.png" alt="logo" style="width: 35%; height: 45%;">
         <div class="footerFlex-text">
           <p id="contactoFooter" onclick="">
             <a href="#">Contacto</a>
           </p>
           <p>
-            <a href="#">Elegi tu trago</a>
+            <a href="#" onclick="openTragos()">Elegi tu trago</a>
           </p>
           <p>
             <a href="https://www.linkedin.com/in/facundo-rossi-95943b20a/">LinkedIn</a>

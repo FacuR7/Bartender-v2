@@ -91,6 +91,9 @@ function modoOscuro () {
   document.querySelector(".botonVaciar").classList.toggle("modoOscuroClaro");
   document.querySelector(".botonFin").classList.toggle("modoOscuroClaro");
   document.querySelector(".dropdown_contenido a").classList.toggle("modoOscuroClaro");
+  document.querySelector(".footerFlex-text").classList.toggle("footerFlex-textOscuro");
+  document.querySelector("footer").classList.toggle("footerOscuro");
+  document.querySelector(".copyright").classList.toggle("copyrightOscuro");
 
   let textoSidebar = document.querySelectorAll(".sidebarTexto a");
   textoSidebar.forEach(texto => {
@@ -134,6 +137,20 @@ function modoOscuro () {
     logoMenuBlanco.style.display = "none";
   } else {
     logoMenuBlanco.style.display = "block"; 
+  }
+
+  let logoFooter = document.querySelector("#logoFooterBlanco");
+  if (logoFooter.style.display === "none") {
+    logoFooter.style.display = "block";
+  } else {
+    logoFooter.style.display = "none";
+  }
+
+  let logoBlancoFooter = document.querySelector("#logoFooter");
+  if (logoBlancoFooter.style.display === "block") {
+    logoBlancoFooter.style.display = "none";
+  } else {
+    logoBlancoFooter.style.display = "block";
   }
 }
 //Carrito de compras//
@@ -229,7 +246,7 @@ function carritoVisible() {
     row.innerHTML = `
       <td><img src="${producto.imagen}" witdh="60rem" height="70rem" /></td>
       <td>${producto.titulo}</td>
-      <td style="font-size:1rem; font-weight:bold">${producto.precio}</td>
+      <td style="font-size:1rem; font-weight:bold">$${producto.precio}</td>
       <td>${producto.cantidad}</td>
       <td  class="borrar-producto" data-id="${producto.id}"><ion-icon name="trash-outline"></ion-icon></td>  
     `;
@@ -568,6 +585,75 @@ function tragos() {
       leerDatosProducto(productoSeleccionado);
 
       productoSeleccionado = document.getElementById("citricNaranja");
+      leerDatosProducto(productoSeleccionado);
+
+      calcularTotal();
+      closeTragos();  
+      openCarro();
+      
+    }
+  }
+  if (tragoSeleccionado === "4") {
+    contenidoTrago.innerHTML = `
+    <h2 id="subtituloTrago">Gin Tonic</h2>
+    <div id="datosTrago">
+      <img src="./assets/GinTonic.jpg" alt="gintonic" style="width:42%;">
+      <ion-icon name="reorder-two-outline" style="font-size: 12rem; font-weight: bold;"></ion-icon>
+      <div id="productosTrago">
+        <img src="./assets/GinBsas.png" alt="gin" style="width:60%;">
+        <img src="./assets/Schweppes.jpg" alt="tonica" style="width:60%;">
+      </div>
+    </div>
+    <p class="recomendacionGin">Recomendacion: Visitar la seccion de <a onclick="closeTragos()" id="linkGinTonic" href="#listaEspecia">Especias y Botanicos</a> para añadir nuevos sabores y aromas a tu Gin Tonic</p>
+    <hr>
+    <button id="botonTragos" class="button">Añadir al Carro ($3070)</button>`;
+
+    let botonTragos = document.getElementById("botonTragos");
+
+    botonTragos.onclick = function() {
+
+      let productoSeleccionado = document.getElementById("ginBsAs");
+      leerDatosProducto(productoSeleccionado);
+
+      productoSeleccionado = document.getElementById("tonica");
+      leerDatosProducto(productoSeleccionado);
+
+      calcularTotal();
+      closeTragos();  
+      openCarro();
+      
+    }
+  }
+  if (tragoSeleccionado === "5") {
+    contenidoTrago.innerHTML = `
+    <h2 id="subtituloTrago">Cynar Julep</h2>
+    <div id="datosTrago">
+      <img src="./assets/cynarJulep.jpg" alt="cynarjulep" style="width:42%;">
+      <ion-icon name="reorder-two-outline" style="font-size: 12rem; font-weight: bold;"></ion-icon>
+      <div id="productosTragoCuatro">
+        <img src="./assets/Cynar.jpg" alt="cynar" style="width:90%;">
+        <img src="./assets/Schweppes.jpg" alt="tonica" style="width:90%;">
+        <img src="./assets/CitricPomelo.jpg" alt="citric" style="width:90%;">
+        <img src="./assets/Menta.jpg" alt="menta" style="width:90%;">
+      </div>
+    </div>
+    <hr>
+    <button id="botonTragos" class="button">Añadir al Carro ($1280)</button>`;
+
+    let botonTragos = document.getElementById("botonTragos");
+
+    botonTragos.onclick = function() {
+
+      let productoSeleccionado = document.getElementById("cynar");
+      leerDatosProducto(productoSeleccionado);
+
+      productoSeleccionado = document.getElementById("tonica");
+      leerDatosProducto(productoSeleccionado);
+
+      productoSeleccionado = document.getElementById("pomelo");
+      leerDatosProducto(productoSeleccionado);
+
+      productoSeleccionado = document.getElementById("menta");
       leerDatosProducto(productoSeleccionado);
 
       calcularTotal();

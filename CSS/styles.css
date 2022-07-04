@@ -65,7 +65,7 @@ header {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   color: inherit;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   display: block;
   transition: 0.3s;
 }
@@ -444,16 +444,36 @@ tr {
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.7); 
 }
+.modalOscuro {
+  color: white;
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 6rem; 
+  left: 0;
+  top: 0;
+  width: 90%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: white; 
+  background-color: rgba(0, 0, 0, 0.7); 
+}
+
 #modalPago-contenido {
   height: 60rem;
   background-color: rgba(206, 240, 250, 0.945);
 }
+
 #modalContacto-contenido {
   height: 40rem;
   background-color: rgba(206, 240, 250, 0.945);
 }
 #modalEnvio-contenido {
   background-color: rgba(206, 240, 250, 0.945);
+}
+#modalEnvio-contenidoOscuro {
+  background-color: rgba(1, 52, 75, 0.945);
+  color: white;
 }
 .modalHeader {
   display: grid;
@@ -483,9 +503,24 @@ tr {
   width: 80%;
   height: 40rem;
 }
+.modal-contentOscuro {
+  background-color: rgba(1, 52, 75, 0.845);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height: 40rem;
+}
 
 .close {
   color: #000000;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  grid-area: cerrar;
+}
+.closeOscuro {
+  color: #ffffff;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -526,15 +561,45 @@ hr {
   border: 1px solid black;
   padding: .5rem;
   border-radius: .25rem;
+  background-color: white;
 }
 .field__label {
   color: black;
   font-size: 0.6rem;
   font-weight: 300;
   text-transform: uppercase;
-  margin-bottom: 0.25rem
+  margin-bottom: 0.25rem;
+  background-color: white;
 }
 .field__input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+}
+.fieldOscuro {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(255, 255, 255);
+  padding: .5rem;
+  border-radius: .25rem;
+}
+.field__labelOscuro {
+  color: rgb(255, 255, 255);
+  font-size: 0.6rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem
+}
+.field__inputOscuro {
+  color: white;
   padding: 0;
   margin: 0;
   border: 0;
@@ -560,6 +625,20 @@ hr {
   grid-template-columns: 1fr 1fr 1fr;
 }
 .button {
+  background-color: #000;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: block;
+  color: #fff;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+}
+.buttonOscuro {
   background-color: #000;
   text-transform: uppercase;
   font-size: 0.8rem;
@@ -602,8 +681,19 @@ footer {
   background-image: linear-gradient(rgba(206, 240, 250, 0.945), rgba(1, 52, 75, 1)45%);
   padding-top: 10rem;
 }
+.footerOscuro {
+  background-image: linear-gradient(rgba(1, 52, 75, 0.945), rgba(206, 240, 250, 0.945)45%);
+  padding-top: 10rem;
+}
 .copyright {
   color: #fff;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+}
+.copyrightOscuro {
+  color: black;
   font-size: 0.8rem;
   text-align: center;
   padding: 1rem;
@@ -623,9 +713,27 @@ footer {
   padding-top: 2rem;
   border-left: white solid 0.5px;
 }
+.footerFlex-textOscuro {
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  border-left: black solid 0.5px;
+}
+.footerFlex-textOscuro a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
 .footerFlex-text a {
   text-decoration: none;
   color: white;
+  font-size: 1rem;
+}
+.footerFlex-textOscuro a {
+  text-decoration: none;
+  color: black;
   font-size: 1rem;
 }
 #modalTragos-contenido {
@@ -665,10 +773,40 @@ footer {
                         "producto2 producto3";
   align-items: center;
   justify-items: center;
-  }
+}
+#productosTragoCuatro {
+  height: 12rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "producto1 producto2"
+                        "producto3 producto4";
+  align-items: center;
+  justify-items: center;
+}
+
+#textoTragos {
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+}
 
 #botonTragos {
   font-size: 0.9rem;
+}
+.recomendacionGin {
+  padding-top: 1rem;
+  color: black;
+  font-size: 0.7rem;
+  text-align: center;
+}
+#linkGinTonic {
+  text-decoration: none;
+  color: black;
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold;
 }
 .modoOscuro {
   background-color: rgba(1, 52, 75, 0.845);
