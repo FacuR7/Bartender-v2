@@ -500,6 +500,7 @@ function tragos() {
   let tragoSeleccionado = document.getElementById("tragos").value;
   let contenidoTrago = document.getElementById("contenidoTragos");
   let botonTragos = document.getElementById("botonTragos");
+  let espacioContenido = document.getElementById("modalTragos-contenido");
 
   if (tragoSeleccionado === "1") {
     contenidoTrago.innerHTML = `
@@ -514,6 +515,8 @@ function tragos() {
     </div>
     <hr>
     <button id="botonTragos" class="button">Añadir al Carro ($1230)</button>`;
+
+    espacioContenido.style.height = "47rem";
 
     let botonTragos = document.getElementById("botonTragos");
 
@@ -545,6 +548,8 @@ function tragos() {
     </div>
     <hr>
     <button id="botonTragos" class="button">Añadir al Carro ($2230)</button>`;
+
+    espacioContenido.style.height = "47rem";
 
     let botonTragos = document.getElementById("botonTragos");
 
@@ -579,6 +584,8 @@ function tragos() {
     <hr>
     <button id="botonTragos" class="button">Añadir al Carro ($970)</button>`;
 
+    espacioContenido.style.height = "47rem";
+
     let botonTragos = document.getElementById("botonTragos");
 
     botonTragos.onclick = function() {
@@ -609,6 +616,8 @@ function tragos() {
     <p class="recomendacionGin">Recomendacion: Visitar la seccion de <a onclick="closeTragos()" id="linkGinTonic" href="#listaEspecia">Especias y Botanicos</a> para añadir nuevos sabores y aromas a tu Gin Tonic</p>
     <hr>
     <button id="botonTragos" class="button">Añadir al Carro ($3070)</button>`;
+
+    espacioContenido.style.height = "47rem";
 
     let botonTragos = document.getElementById("botonTragos");
 
@@ -641,6 +650,8 @@ function tragos() {
     </div>
     <hr>
     <button id="botonTragos" class="button">Añadir al Carro ($1280)</button>`;
+
+    espacioContenido.style.height = "47rem";
 
     let botonTragos = document.getElementById("botonTragos");
 
