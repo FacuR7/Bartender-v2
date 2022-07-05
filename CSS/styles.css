@@ -365,7 +365,8 @@ tr {
   margin-top: 1.2rem;
 }
 .borrar-producto {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 .show {
   display: block;

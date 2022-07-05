@@ -192,14 +192,11 @@ function agregarProducto(e) {
 }
 
 function eliminarProducto(e) {
-  if(e.target.classList.contains('borrar-producto')) {
-    const productoId = e.target.getAttribute('data-id');
-
-    articulosCarro = articulosCarro.filter(producto => producto.id !== productoId);
-
-    carritoVisible();
-  }
-  calcularTotal();  
+ 
+  const productoId = e.target.parentElement.getAttribute('data-id');
+  articulosCarro = articulosCarro.filter(producto => producto.id !== productoId);
+  carritoVisible(); 
+  calcularTotal();
 }
 
 function leerDatosProducto(productoSeleccionado) {
