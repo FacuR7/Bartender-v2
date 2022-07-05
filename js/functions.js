@@ -262,8 +262,8 @@ function calcularTotal () {
     console.log(producto.precio);
     console.log(producto.cantidad);
     totalCarro = totalCarro + producto.precio * producto.cantidad;
-    document.getElementById("totalNumero").innerHTML = "$" + totalCarro;
   })
+  document.getElementById("totalNumero").innerHTML = "$" + totalCarro;
   console.log(totalCarro);
 }
 
