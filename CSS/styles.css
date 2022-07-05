@@ -253,7 +253,7 @@ header {
 .toggle {
   position: relative;
   display: flex;
-  margin-top: 18rem;
+  margin-top: 14rem;
   justify-content: space-around;
 }
 
