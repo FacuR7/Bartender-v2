@@ -490,8 +490,10 @@ function openTragos() {
 
 function closeTragos() {
   let modalTragos = document.getElementById("modalTragos");
+  let contenidoTrago = document.getElementById("contenidoTragos");
 
   modalTragos.style.display = "none";
+  contenidoTrago.innerHTML = "";
 }
 
 function tragos() {
