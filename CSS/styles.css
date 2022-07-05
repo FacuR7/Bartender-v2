@@ -737,6 +737,12 @@ footer {
   color: black;
   font-size: 1rem;
 }
+#logoFooter {
+  display: none;
+}
+#logoFooterBlanco {
+  display: block;
+}
 #modalTragos-contenido {
   background-color: rgba(206, 240, 250, 0.945);
   height: 25rem;
